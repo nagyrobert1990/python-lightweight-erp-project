@@ -28,15 +28,19 @@ def start_module():
 
     # your code
 
+    os.system('clear')
+
     opts = ["Show Table","Add","Remove","Update"]
-
+    
     while True :
-
+        
+        
         ui.print_menu("Store Manager: ", opts, "Back to Main Menu")
 
         inputs = ui.get_inputs(["Please enter a number: "], "")
         option = inputs[0]
         table = data_manager.get_table_from_file("store/games.csv")
+        os.system('clear')
         if option == "1":
             show_table(table)
         elif option == "2":

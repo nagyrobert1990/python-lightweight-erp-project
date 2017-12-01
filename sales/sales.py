@@ -30,6 +30,8 @@ def start_module():
 
     # your code
 
+    os.system('clear')
+
     opts = ["Show Table","Add","Remove","Update"]
 
     while True :
@@ -39,6 +41,7 @@ def start_module():
         inputs = ui.get_inputs(["Please enter a number: "], "")
         option = inputs[0]
         table = data_manager.get_table_from_file("sales/sales.csv")
+        os.system('clear')
         if option == "1":
             show_table(table)
         elif option == "2":
