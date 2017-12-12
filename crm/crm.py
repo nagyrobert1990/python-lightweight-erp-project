@@ -1,77 +1,14 @@
-# data structure:
-# id: string
-#     Unique and randomly generated (at least 2 special char()expect: ';'), 2 number, 2 lower and 2 upper case letter)
-# name: string
-# email: string
-# subscribed: boolean (Is she/he subscribed to the newsletter? 1/0 = yes/not)
-
-
-# importing everything you need
 import os
-# User interface module
 import ui
-# data manager module
 import data_manager
-# common module
 import common
 
 
 def start_module():
-    """
-    Starts this module and displays its menu.
-    User can access default special features from here.
-    User can go back to main menu from here.
 
-    Returns:
-        None
-    """
+    common.submenu_of_managements(4)
 
-    # your code
-
-    os.system('clear')
-
-    opts = ["Show Table","Add","Remove","Update"]
-
-    while True :
-
-        ui.print_menu("Customer Relationship Management: ", opts, "Back to Main Menu")
-
-        inputs = ui.get_inputs(["Please enter a number: "], "")
-        option = inputs[0]
-        table = data_manager.get_table_from_file("crm/customers.csv")
-        os.system('clear')
-        if option == "1":
-            show_table(table)
-        elif option == "2":
-            add(table)
-        elif option == "3":
-            id_number = ''.join(ui.get_inputs(["ID: "], "The ID of the line you want to remove? press (0) to cancel"))
-            if id_existance(table,id_number) == False:
-                if id_number == "0":
-                    pass
-                else:
-                    ui.print_error_message('ID: %s does not exist in the file.' % id_number)
-                    pass
-            else:
-                remove(table,id_number)
-        elif option == "4":
-            update_id = ''.join(ui.get_inputs(["ID: "], "The ID of the line you want to update? press (0) to cancel"))
-            if id_existance(table,update_id) == False:
-                if id_number == "0":
-                    pass
-                else:
-                    ui.print_error_message('ID: %s does not exist in the file.' % update_id)
-                    pass
-            else:
-                update(table,update_id)
-        elif option == "0":
-            break
-        else:
-            ui.print_error_message("There is no such option.")
-
-    if option == "0":
-        pass
-
+'''
 def id_existance(table,id_):
 
     for i in range(len(table)):
@@ -179,7 +116,7 @@ def update(table, id_):
     ui.print_error_message('The row with ID: %s has been updated.' % id_)
 
     return table
-
+'''
 
 # special functions:
 # ------------------
