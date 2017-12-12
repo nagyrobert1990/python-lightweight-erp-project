@@ -19,29 +19,16 @@ def get_longest_name_id(table):
                 + [lst[0]] +
                 quicksor([x for x in lst[1:] if x >= lst[0]]))
 
-    letter_count = 0
-    a = []
-    the_id = ''
-    the_name = ''
-    for line in range(len(table)):
-        for line_i in range(line, len(table)):
-            if len(table[line][1]) < len(table[line_i][1]):
-                letter_count = len(table[line_i][1])
-                the_id = table[line_i][0]
-                the_name = table[line_i][1]
-    a.append(the_name)
-    for line in range(len(table)):
-        if letter_count == len(table[line][1]):
-            a.append(table[line][1])
+    longest = [["",None]]
+    for i in range(len(table)):
+        if len(table[i][1]) > len(longest[0][0]):
+            longest = [[table[i][1],table[i][0]]]
+        elif len(table[i][1]) == len(longest[0][0]):
+            longest.append([table[i][1],table[i][0]])
+
+    lst = quicksor(longest)
     
-    if len(a) > 1:
-        the_name = quicksor(a)[0]
-        for line in range(len(table)):
-            if table[line][1] == the_name:
-                the_id = table[line][0]
-                break
-        
-    return str(the_id)
+    return lst[0][1]
 
 
 # the question: Which customers has subscribed to the newsletter?
