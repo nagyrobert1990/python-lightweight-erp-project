@@ -30,7 +30,8 @@ def which_year_max(table):
     
     return int(max(profit_by_year, key=profit_by_year.get))
 
-
+# the question: What is the average (per item) profit in a given year? [(profit)/(items count) ]
+# return the answer (number)
 def avg_amount(table, year):
 
     profit_by_year = {}
@@ -57,4 +58,6 @@ def avg_amount(table, year):
         if int(table[line][3]) == year:
             items_count += 1
 
-    return int(profit_by_year[year]/items_count)
+    current_profit = int(profit_by_year[str(year)])
+
+    return current_profit/items_count
