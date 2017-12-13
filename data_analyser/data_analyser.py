@@ -15,18 +15,8 @@ from crm import crm
 
 
 def start_module():
-    """
-    Starts this module and displays its menu.
-    User can access default special features from here.
-    User can go back to main menu from here.
-
-    Returns:
-        None
-    """
-
-    # your code
-
-    pass
+    
+    common.submenu_of_managements(6)
 
 
 def get_the_last_buyer_name():
@@ -37,9 +27,11 @@ def get_the_last_buyer_name():
         Customer name of the last buyer
     """
 
-    # your code
+    last_sold_item = sales.get_item_id_sold_last()
+    last_buyer_id = sales.get_customer_id_by_sale_id(last_sold_item)
+    last_buyer_name = crm.get_name_by_id(last_buyer_id)
 
-    pass
+    return last_buyer_name
 
 
 def get_the_last_buyer_id():
@@ -50,9 +42,10 @@ def get_the_last_buyer_id():
         Customer id of the last buyer
     """
 
-    # your code
+    last_sold_item = sales.get_item_id_sold_last()
+    last_buyer_id = sales.get_customer_id_by_sale_id(last_sold_item)
 
-    pass
+    return last_buyer_id
 
 
 def get_the_buyer_name_spent_most_and_the_money_spent():
@@ -79,8 +72,6 @@ def get_the_buyer_id_spent_most_and_the_money_spent():
    Returns:
         Tuple of customer id and the sum the customer spent
     """
-
-    # your code
 
     pass
 
