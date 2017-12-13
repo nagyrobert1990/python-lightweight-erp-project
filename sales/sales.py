@@ -8,17 +8,22 @@ def start_module():
         
     common.submenu_of_managements(0)
 
-# special functions:
-# ------------------
 
-# the question: What is the id of the item that was sold for the lowest price ?
-# return type: string (id)
-# if there are more than one with the lowest price, return the first by descending alphabetical order
 def get_lowest_price_item_id(table):
+    lowest_price_id = []
+    lowest_price = int(table[0][2])
 
-    # your code
+    for i in range(len(table)):
+        if int(table[i][2]) < lowest_price:
+            lowest_price = int(table[i][2])
+    
+    for i in range(len(table)):
+        if int(table[i][2]) == lowest_price:
+            lowest_price_id.append(table[i][0])
 
-    pass
+    lowest_price_id = list(reversed(common.list_order(lowest_price_id)))
+
+    return lowest_price_id[0]
 
 
 # the question: Which items are sold between two given dates ? (from_date < sale_date < to_date)
