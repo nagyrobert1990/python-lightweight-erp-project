@@ -8,49 +8,6 @@ def start_module():
         
     common.submenu_of_managements(0)
 
-'''
-def add(table):
-    new_row = ui.get_inputs(['Title: ','Price: ','Month: ','Day: ','Year: '],"Please, give me the specs.")
-    added_id = common.generate_random(table)
-    new_row.insert(0,added_id)
-    table.append(new_row)
-    data_manager.write_table_to_file("sales/sales.csv",table)
-    show_table(table)
-    ui.print_error_message('The specs are added with ID: ' + added_id)
-
-    return table
-
-
-def remove(table, id_):
-    for i in range(len(table)):
-        if table[i][0] == id_:
-            del(table[i])
-            break
-    
-    data_manager.write_table_to_file("sales/sales.csv",table)
-    show_table(table)
-    ui.print_error_message('The row with ID: %s has been removed.' % id_)
-
-    return table
-
-
-def update(table, id_):
-    updated_row = ui.get_inputs(['Title: ','Price: ','Month: ','Day: ','Year: '],"Please, give me the specs.")
-    updated_row.insert(0,id_)
-    
-    for i in range(len(table)):
-        if table[i][0] == id_:
-            table.insert(i,updated_row)
-            del(table[i+1])
-            break
-
-    data_manager.write_table_to_file("sales/sales.csv",table)
-    show_table(table)
-    ui.print_error_message('The row with ID: %s has been updated.' % id_)
-
-    return table
-'''
-
 # special functions:
 # ------------------
 

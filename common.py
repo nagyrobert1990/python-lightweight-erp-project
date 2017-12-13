@@ -37,6 +37,14 @@ def generate_random(table):
                 return generated
 
 
+def list_order(lst):
+        if not lst:
+            return []
+        return (list_order([x for x in lst[1:] if x <  lst[0]])
+                + [lst[0]] +
+                list_order([x for x in lst[1:] if x >= lst[0]]))
+
+
 def submenu_of_managements(management):
     submenu_titles = ["Sales Manager: ","Store Manager: ","Inventory Manager: ", "Human Resources Manager: ","Customer Relationship Management: ","Accounting Manager: "]
     file_paths = ["sales/sales.csv","store/games.csv","inventory/inventory.csv","hr/persons.csv","crm/customers.csv","accounting/items.csv"]
