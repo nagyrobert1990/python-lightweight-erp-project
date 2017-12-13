@@ -34,9 +34,6 @@ def get_subscribed_emails(table):
     
     return subscribe
 
-# functions supports data analyser
-# --------------------------------
-
 
 def get_name_by_id(id):
 
@@ -51,9 +48,11 @@ def get_name_by_id(id):
         str the name of the customer
     """
 
-    # your code
-
-    pass
+    table = data_manager.get_table_from_file("crm/customers.csv")
+    if common.is_id_exists(table, id) == True:
+        for line in table:
+            if line[0] == id:
+                return line[1]
 
 
 def get_name_by_id_from_table(table, id):
@@ -69,6 +68,7 @@ def get_name_by_id_from_table(table, id):
         str the name of the customer
     """
 
-    # your code
-
-    pass
+    if common.is_id_exists(table, id) == True:
+        for line in table:
+            if line[0] == id:
+                return line[1]
