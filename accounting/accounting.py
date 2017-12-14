@@ -8,16 +8,19 @@ def start_module():
 
     common.submenu_of_managements(5)
 
+
 def which_year_max(table):
     profit_by_year = {}
 
     for line in range(len(table)):
         in_out = [0,0]
+
         if profit_by_year.get(table[line][3]) != None :
             if table[line][4] == "in":
                 profit_by_year[table[line][3]][0] += int(table[line][5])
             elif table[line][4] == "out":
                 profit_by_year[table[line][3]][1] += int(table[line][5])
+
         else:
             if table[line][4] == "in":
                 in_out[0] += int(table[line][5])
@@ -31,17 +34,18 @@ def which_year_max(table):
     return int(max(profit_by_year, key=profit_by_year.get))
 
 def avg_amount(table, year):
-
     profit_by_year = {}
     items_count = 0
 
     for line in range(len(table)):
         in_out = [0,0]
+
         if profit_by_year.get(table[line][3]) != None :
             if table[line][4] == "in":
                 profit_by_year[table[line][3]][0] += int(table[line][5])
             elif table[line][4] == "out":
                 profit_by_year[table[line][3]][1] += int(table[line][5])
+
         else:
             if table[line][4] == "in":
                 in_out[0] += int(table[line][5])
