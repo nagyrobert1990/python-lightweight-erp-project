@@ -10,9 +10,9 @@ def start_module():
 
 
 def get_available_items(table):
-
     current_year = 2017
     available_items = []
+
     for line in table:
         if int(line[3]) + int(line[4]) >= current_year:
             line[3] = int(line[3])
@@ -39,6 +39,7 @@ def get_average_durability_by_manufacturers(table):
 
         for nums in average[item]:
             sum_of_durability += nums
+
         average[item] = round(sum_of_durability/len(average[item]), 2)
     
     return average
