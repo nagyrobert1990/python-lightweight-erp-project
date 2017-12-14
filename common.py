@@ -121,25 +121,22 @@ def submenu_of_managements(management):
                 ui.print_error_message("There is no such option.")
         else:
             os.system('clear')
-
+            table_sales = data_manager.get_table_from_file("sales/sales.csv")
             if option == "1":
                 ui.print_result(data_analyser.get_the_last_buyer_name(), "The Last Buyer is ")
             elif option == "2":
                 ui.print_result(data_analyser.get_the_last_buyer_id(), "The Last Buyer's ID is ")
             elif option == "3":
-                #ui.print_result(data_analyser.get_the_buyer_name_spent_most_and_the_money_spent()[0], "The Buyer Who Spent The Most "
-                #ui.print_result(data_analyser.get_the_buyer_name_spent_most_and_the_money_spent()[1], "And He/She Spent "
-                pass
+                ui.print_result(data_analyser.get_the_buyer_name_spent_most_and_the_money_spent(table_sales)[0], "The Buyer Who Spent The Most ")
+                ui.print_result(data_analyser.get_the_buyer_name_spent_most_and_the_money_spent(table_sales)[1], "And He/She Spent ")
+                
             elif option == "4":
-                #ui.print_result(data_analyser.get_the_buyer_id_spent_most_and_the_money_spent()[0], "The Buyer's ID Who Spent The Most "
-                #ui.print_result(data_analyser.get_the_buyer_id_spent_most_and_the_money_spent()[1], "And He/She Spent "
-                pass
+                ui.print_result(data_analyser.get_the_buyer_id_spent_most_and_the_money_spent(table_sales)[0], "The Buyer's ID Who Spent The Most ")
+                ui.print_result(data_analyser.get_the_buyer_id_spent_most_and_the_money_spent(table_sales)[1], "And He/She Spent ")
             elif option == "5":
-                #ui.print_result(data_analyser.get_the_most_frequent_buyers_names(num=1), "The Most Frequent Buyer's Names And Their Number Of Sales ")
-                pass
+                ui.print_result(data_analyser.get_the_most_frequent_buyers_names(num=1), "The Most Frequent Buyer's Names And Their Number Of Sales ")
             elif option == "6":
-                #ui.print_result(data_analyser.get_the_most_frequent_buyers_ids(num=1), "The Most Frequent Buyer's IDs And Their Number Of Sales ")
-                pass
+                ui.print_result(data_analyser.get_the_most_frequent_buyers_ids(num=1), "The Most Frequent Buyer's IDs And Their Number Of Sales ")
             elif option == "0":
                 break
             else:
