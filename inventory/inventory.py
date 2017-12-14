@@ -9,18 +9,17 @@ def start_module():
     common.submenu_of_managements(2)
 
 
-# special functions:
-# ------------------
-
-# the question: Which items have not exceeded their durability yet?
-# return type: list of lists (the inner list contains the whole row with their actual data types)
-#
-# @table: list of lists
 def get_available_items(table):
 
-    # your code
-
-    pass
+    current_year = 2017
+    available_items = []
+    for line in table:
+        if int(line[3]) + int(line[4]) >= current_year:
+            line[3] = int(line[3])
+            line[4] = int(line[4])
+            available_items.append(line)
+    
+    return available_items
 
 
 # the question: What are the average durability times for each manufacturer?
@@ -28,7 +27,22 @@ def get_available_items(table):
 #
 # @table: list of lists
 def get_average_durability_by_manufacturers(table):
+    average = {}
 
-    # your code
+    for line in table:
+        temp = []
 
-    pass
+        if line[2] not in average:
+            temp.append(int(line[4]))
+            average[line[2]] = temp
+        else:
+            average[line[2]].append(int(line[4]))
+
+    for item in average:
+        sum_of_durability = 0
+
+        for nums in average[item]:
+            sum_of_durability += nums
+        average[item] = round(sum_of_durability/len(average[item]), 2)
+    
+    return average
