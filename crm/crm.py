@@ -24,8 +24,8 @@ def get_longest_name_id(table):
 
 
 def get_subscribed_emails(table):
-
     subscribe = []
+
     for line in range(len(table)):
         temp_str = ""
         if table[line][3] == "1":
@@ -36,19 +36,8 @@ def get_subscribed_emails(table):
 
 
 def get_name_by_id(id):
-
-    """
-    Reads the table with the help of the data_manager module.
-    Returns the name (str) of the customer with the given id (str) on None om case of non-existing id.
-
-    Args:
-        id (str): the id of the customer
-
-    Returns:
-        str the name of the customer
-    """
-
     table = data_manager.get_table_from_file("crm/customers.csv")
+
     if common.is_id_exists(table, id) == True:
         for line in table:
             if line[0] == id:
@@ -56,18 +45,6 @@ def get_name_by_id(id):
 
 
 def get_name_by_id_from_table(table, id):
-
-    """
-    Returns the name (str) of the customer with the given id (str) on None om case of non-existing id.
-
-    Args:
-        table (list of lists): the customer table
-        id (str): the id of the customer
-
-    Returns:
-        str the name of the customer
-    """
-
     if common.is_id_exists(table, id) == True:
         for line in table:
             if line[0] == id:
