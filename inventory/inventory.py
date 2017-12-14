@@ -22,10 +22,6 @@ def get_available_items(table):
     return available_items
 
 
-# the question: What are the average durability times for each manufacturer?
-# return type: a dictionary with this structure: { [manufacturer] : [avg] }
-#
-# @table: list of lists
 def get_average_durability_by_manufacturers(table):
     average = {}
 
