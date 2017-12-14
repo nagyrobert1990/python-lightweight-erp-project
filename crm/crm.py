@@ -37,6 +37,7 @@ def get_subscribed_emails(table):
 
 def get_name_by_id(id):
     table = data_manager.get_table_from_file("crm/customers.csv")
+    all_customers = []
 
     if common.is_id_exists(table, id) == True:
         for line in table:
@@ -49,3 +50,13 @@ def get_name_by_id_from_table(table, id):
         for line in table:
             if line[0] == id:
                 return line[1]
+
+
+def get_all_customer_ids():
+    table = data_manager.get_table_from_file("crm/customers.csv")
+    all_customers = []
+
+    for line in table:
+        all_customers.append(line[1])
+        
+    return all_customers

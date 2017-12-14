@@ -74,3 +74,15 @@ def get_the_most_frequent_buyers_ids(num=1):
     result = sales.get_num_of_sales_per_customer_ids()
     result = sorted(result.items(), key=lambda item:item[1], reverse=True)
     return result[:num]
+
+
+def all_the_customers_who_did_not_buy_anything():
+    crm_customers_list = crm.get_all_customer_ids()
+    sales_customers_list = list(sales.get_all_customer_ids())
+    result = []
+
+    for customer in crm_customers_list:
+        if customer not in sales_customers_list:
+            result.append(customer)
+    
+    return result

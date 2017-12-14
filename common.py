@@ -75,7 +75,8 @@ def submenu_of_managements(management):
         "The Buyer Who Spent The Most",
         "The Buyer's ID Who Spent The Most",
         "Most Frequent Buyers Names",
-        "Most Frequent Buyers IDs"]
+        "Most Frequent Buyers IDs",
+        "The List Of Customers Who Did Not Buy Anything"]
     
     while True :
         ui.print_menu(submenu_titles[management], opts, "Back to Main Menu")
@@ -122,14 +123,14 @@ def submenu_of_managements(management):
         else:
             os.system('clear')
             table_sales = data_manager.get_table_from_file("sales/sales.csv")
+
             if option == "1":
                 ui.print_result(data_analyser.get_the_last_buyer_name(), "The Last Buyer is ")
             elif option == "2":
                 ui.print_result(data_analyser.get_the_last_buyer_id(), "The Last Buyer's ID is ")
             elif option == "3":
                 ui.print_result(data_analyser.get_the_buyer_name_spent_most_and_the_money_spent(table_sales)[0], "The Buyer Who Spent The Most ")
-                ui.print_result(data_analyser.get_the_buyer_name_spent_most_and_the_money_spent(table_sales)[1], "And He/She Spent ")
-                
+                ui.print_result(data_analyser.get_the_buyer_name_spent_most_and_the_money_spent(table_sales)[1], "And He/She Spent ") 
             elif option == "4":
                 ui.print_result(data_analyser.get_the_buyer_id_spent_most_and_the_money_spent(table_sales)[0], "The Buyer's ID Who Spent The Most ")
                 ui.print_result(data_analyser.get_the_buyer_id_spent_most_and_the_money_spent(table_sales)[1], "And He/She Spent ")
@@ -137,6 +138,8 @@ def submenu_of_managements(management):
                 ui.print_result(data_analyser.get_the_most_frequent_buyers_names(num=1), "The Most Frequent Buyer's Names And Their Number Of Sales ")
             elif option == "6":
                 ui.print_result(data_analyser.get_the_most_frequent_buyers_ids(num=1), "The Most Frequent Buyer's IDs And Their Number Of Sales ")
+            elif option == "7":
+                ui.print_result(data_analyser.all_the_customers_who_did_not_buy_anything(), "The List Of Customers Who Did Not Buy Anything ")
             elif option == "0":
                 break
             else:
